@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Http\Requests\Auth;
+
+use App\Models\User;
+use App\Rules\StrongPassword;
+use Illuminate\Foundation\Http\FormRequest;
+
+class RegisterRequest extends FormRequest
+{
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * @return array<string, array<int, mixed>>
+     */
+    public function rules(): array
+    {
+        return [
+            'name' => ['required', 'string', 'max:255'],
+            'age' => ['required', 'integer', 'between:1,120'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'string', 'confirmed', new StrongPassword],
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'El nombre es obligatorio.',
+            'age.required' => 'La edad es obligatoria.',
+            'age.integer' => 'La edad debe ser un número entero.',
+            'age.between' => 'La edad debe estar entre 1 y 120.',
+            'email.required' => 'El email es obligatorio.',
+            'email.email' => 'El email no es válido.',
+            'email.unique' => 'Ese email ya está registrado.',
+            'password.required' => 'La contraseña es obligatoria.',
+            'password.confirmed' => 'La confirmación de la contraseña no coincide.',
+        ];
+    }
+}
