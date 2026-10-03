@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "foundry-mcp": {
+      "command": "uvx",
+      "args": ["foundry-mcp"],
+      "env": { "FOUNDRY_MCP_SPECS_DIR": "./specs" }
+    }
+  }
+}

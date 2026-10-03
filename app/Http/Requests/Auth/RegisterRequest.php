@@ -25,22 +25,4 @@ class RegisterRequest extends FormRequest
             'password' => ['required', 'string', 'confirmed', new StrongPassword],
         ];
     }
-
-    /**
-     * @return array<string, string>
-     */
-    public function messages(): array
-    {
-        return [
-            'name.required' => 'El nombre es obligatorio.',
-            'age.required' => 'La edad es obligatoria.',
-            'age.integer' => 'La edad debe ser un número entero.',
-            'age.between' => 'La edad debe estar entre 1 y 120.',
-            'email.required' => 'El email es obligatorio.',
-            'email.email' => 'El email no es válido.',
-            'email.unique' => 'Ese email ya está registrado.',
-            'password.required' => 'La contraseña es obligatoria.',
-            'password.confirmed' => 'La confirmación de la contraseña no coincide.',
-        ];
-    }
 }
