@@ -135,7 +135,7 @@ class SpanishScreensTest extends TestCase
             '/^Demasiados intentos de inicio de sesión\. Inténtalo de nuevo en \d+ segundos\.$/u',
             $messages[0],
         );
-        $this->assertEqualsCanonicalizing(self::LOGIN_BASE, array_diff($texts, $messages));
+        $this->assertEqualsCanonicalizing(self::LOGIN_BASE, array_values(array_diff($texts, $messages)));
     }
 
     // --- /register: estado normal (no regresión) ----------------------

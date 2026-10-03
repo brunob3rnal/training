@@ -16,6 +16,8 @@ class StrongPassword implements ValidationRule
             return;
         }
 
-        $fail('La contraseña no cumple: '.implode('; ', array_column($unmet, 'label')).'.');
+        $fail(trans('validation.strong_password', [
+            'criteria' => implode('; ', array_column($unmet, 'label')),
+        ]));
     }
 }
