@@ -28,3 +28,5 @@ Thumbs.db
 /database/e2e.sqlite
 /test-results
 /playwright-report
+.claude/settings.local.json
+specs/.backups/

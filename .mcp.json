@@ -2,7 +2,7 @@
   "mcpServers": {
     "foundry-mcp": {
       "command": "uvx",
-      "args": ["foundry-mcp"],
+      "args": ["--with", "mcp<2", "--with", "pypdf", "foundry-mcp"],
       "env": { "FOUNDRY_MCP_SPECS_DIR": "./specs" }
     }
   }
